@@ -4,36 +4,33 @@ const employees = [
     name: 'Atticus',
     employeeNumber: '2405',
     annualSalary: '47000',
-    reviewRating: 3
+    reviewRating: 3,
   },
   {
     name: 'Jem',
     employeeNumber: '62347',
     annualSalary: '63500',
-    reviewRating: 4
+    reviewRating: 4,
   },
   {
     name: 'Scout',
     employeeNumber: '6243',
     annualSalary: '74750',
-    reviewRating: 5
+    reviewRating: 5,
   },
   {
     name: 'Robert',
     employeeNumber: '26835',
     annualSalary: '66000',
-    reviewRating: 1
+    reviewRating: 1,
   },
   {
     name: 'Mayella',
     employeeNumber: '89068',
     annualSalary: '35000',
-    reviewRating: 1
-  }
+    reviewRating: 1,
+  },
 ];
-
-console.log('array of employee data: ',  employees );
-
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
@@ -43,15 +40,20 @@ console.log('array of employee data: ',  employees );
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-
-
-
 // This function will calculate 1 employee's bonus!
 //
-function calculateIndividualEmployeeBonus( employee ) {  
+function calculateIndividualEmployeeBonus(employee) {
   // your logic here
-  
-  
-  // return new object with bonus results
+  let employeeBonus = {
+    name: employee.name,
+    bonusPercentage: 0,
+    totalBonus: 0,
+    totalCompensation: employee.annualSalary,
+  };
 
+  // return new object with bonus results
+  return employeeBonus;
+}
+for (let i = 0; i < employees.length; i++) {
+  console.log('employee data: ', calculateIndividualEmployeeBonus(employees[i]));
 }
