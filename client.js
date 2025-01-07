@@ -46,26 +46,75 @@ const employees = [
 // use each employee object as the input to the function described below.
 // console.log the results of each iteration.
 // The log should be in the loop, not the function.
-
-
 // Loop over each employee in the employees array
-function calculateIndividualEmployeeBonus(employee) {
-  // Your logic here
-  
-  for(let i= 0; i<employee.length; i++){
-    console.log(employee[i]);
-  for(let k=0; k < employees[k].name; k++){
-    console.log(employees[k].name);
-  }
-}
-}
-calculateIndividualEmployeeBonus(employees);
-
 
 // This function will calculate 1 employees bonus!
 
+function calculateIndividualEmployeeBonus(employee) {
+  // Your logic here
+  console.log('employee', employee);
+
+  //return a new employee object with the following keys:
+  /*
+[x]The name property should contain the employee's name.
+[]The bonusPercentage property should contain the bonus percentage the employee is to receive. See section below for calculation instructions.
+[]The totalCompensation property should be the adjusted annual compensation (base annual + bonus)
+[]The totalBonus should be the employee's total bonus rounded to the nearest dollar.
+  */
+let bonusPercentage = 0;
+ if(employees.reviewRating <= 2){
+bonusPercentage = 0;
+  }else if(employees.reviewRating === 3 ){
+    bonusPercentage = employee.annualSalary * .04;
+    console.log(bonusPercentage);
+  }else if(employees.reviewRating === 4){
+   bonusPercentage = employee.annualSalary * .06;
+   console.log(bonusPercentage);
+  }else if(employees.reviewRating === 5){ 
+    bonusPercentage = employee.annualSalary * .10;
+    console.log(bonusPercentage);
+  }
+  
+  //function awesomeThings(array, userAwesomeLevel, lameness) {
+    //const array6Up = array.filter((item) => item.awesomeLevel >= userAwesomeLevel && item.lameness < lameness);
+    //return array6Up;
+
+  
+const newEmployee = {
+  name: employee.name,
+  bonusPercentage: bonusPercentage,
+  totalCompensation: 0,
+  totalBonus: 0
+}
+console.log(newEmployee);
+
+return newEmployee; //this should have all the newly cacluated bonus info!
+}
+
+//loop the employee array
+for (let employee of employees) {
+  const emp = calculateIndividualEmployeeBonus(employee);
+  //console.log('Employee', emp.annualSalary);
+  console.log(emp);
+  calculateIndividualEmployeeBonus();
+}
+
+//function calculateIndividualEmployeeBonus(part, annualSalary) {
+  //return (part / annualSalary) * 100;
+//}
+
+calculateIndividualEmployeeBonus(employees);
+
 
 // and call the calculateIndividualEmployeeBonus function for each one
+
+// for(let i= 0; i<employee.length; i++){
+//   console.log(employee[i]);
+// for(let k=0; k < employees[k].name; k++){
+//   console.log(employees[k].name);
+// }
+// }
+
 
 // Test cases - these are failing by default but should pass once you've written the function correctly
 // You can write more test cases to test your function using the same format
