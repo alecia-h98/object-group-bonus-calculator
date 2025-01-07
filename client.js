@@ -1,4 +1,4 @@
-// array of employee objects
+// Array of employee objects
 const employees = [
   {
     name: 'Atticus',
@@ -43,62 +43,26 @@ const employees = [
 // This function will calculate 1 employee's bonus!
 //
 function calculateIndividualEmployeeBonus(employee) {
-  // your logic here
-  let employeeBonus = {
-    // creating employeeBonus object to later return.
-    name: employee.name,
-    bonusPercentage: 0,
-    totalBonus: 0,
-    totalCompensation: Number(employee.annualSalary),
-  };
-  if (employee.reviewRating <= 2) {
-    //Those who have a rating of a 2 or below should not receive a bonus
-    return employeeBonus;
-  }
-  if (employee.reviewRating > 2) {
-    //Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income
-    // .04
-    employeeBonus.bonusPercentage += 4 / 100;
-  }
-  if (employee.reviewRating > 3) {
-    //Those who have a rating of a 4 should receive a base bonus of 6% of their base annual income
-    // .04 + .02 = .06
-    employeeBonus.bonusPercentage += 2 / 100;
-  }
-  if (employee.reviewRating > 4) {
-    //Those who have a rating of a 5 should receive a base bonus of 10% of their base annual income
-    employeeBonus.bonusPercentage += 4 / 100;
-  }
-  if (employee.employeeNumber.length < 5) {
-    //If their employee number is 4 digits long, this means they have been with the company for longer than 15 years,
-    //and should receive an additional 5%
-    employeeBonus.bonusPercentage += 5 / 100;
-  }
-  if (employee.annualSalary > 65000) {
-    //However, if their annual income is greater than $65,000, they should have their bonus adjusted down 1%.
-    employeeBonus.bonusPercentage -= 1 / 100;
-  }
-
-  //No bonus can be above 13% or below 0% total
-  if (employeeBonus.bonusPercentage > 13 / 100) {
-    employeeBonus.bonusPercentage = 13 / 100;
-  } else if (employeeBonus.bonusPercentage < 0) {
-    employeeBonus.bonusPercentage = 0;
-  }
-
-  employeeBonus.totalBonus = employee.annualSalary * employeeBonus.bonusPercentage;
-  employeeBonus.totalBonus -= employeeBonus.totalBonus % 1;
-  employeeBonus.totalCompensation += employeeBonus.totalBonus;
-
-  return employeeBonus;
+  // Your logic here
 }
 
-//loop over employees array
-for (let i = 0; i < employees.length; i++) {
-  //employee base information -> no bonus
-  console.log('employee info:', employees[i]);
+// Loop over each employee in the employees array
+// and call the calculateIndividualEmployeeBonus function for each one
 
-  //employee w/ bonus calulated
-  const employeeInfo = calculateIndividualEmployeeBonus(employees[i]);
-  console.log('employee bonus Info', employeeInfo);
-}
+// Test cases - these are failing by default but should pass once you've written the function correctly
+// You can write more test cases to test your function using the same format
+const atticusResult = calculateIndividualEmployeeBonus(employees[0]);
+console.log(
+  'Atticus Test Results:',
+  atticusResult.bonusPercentage === 0.09,
+  atticusResult.totalBonus === 4230,
+  atticusResult.totalCompensation === 51230
+);
+
+const jemResult = calculateIndividualEmployeeBonus(employees[1]);
+console.log(
+  'Jem Test Results:',
+  jemResult.bonusPercentage === 0.06,
+  jemResult.totalBonus === 3810,
+  jemResult.totalCompensation === 67310
+);
