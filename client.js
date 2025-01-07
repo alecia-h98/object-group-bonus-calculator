@@ -40,13 +40,31 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-// This function will calculate 1 employee's bonus!
-//
-function calculateIndividualEmployeeBonus(employee) {
-  // Your logic here
-}
+//Loop over the employees array and do the following:
+
+// ***Loop over the employees array and do the following:
+// use each employee object as the input to the function described below.
+// console.log the results of each iteration.
+// The log should be in the loop, not the function.
+
 
 // Loop over each employee in the employees array
+function calculateIndividualEmployeeBonus(employee) {
+  // Your logic here
+  
+  for(let i= 0; i<employee.length; i++){
+    console.log(employee[i]);
+  for(let k=0; k < employees[k].name; k++){
+    console.log(employees[k].name);
+  }
+}
+}
+calculateIndividualEmployeeBonus(employees);
+
+
+// This function will calculate 1 employees bonus!
+
+
 // and call the calculateIndividualEmployeeBonus function for each one
 
 // Test cases - these are failing by default but should pass once you've written the function correctly
